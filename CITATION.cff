@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "Jika Anda menggunakan proyek ini, mohon cantumkan sitasi berikut."
+title: "Pleiades HDBSCAN (Gaia): Modular Clustering & Validation Pipeline"
+version: "0.1.0"
+date-released: "2025-09-14"
+authors:
+  - family-names: "Junjunan"
+    given-names: "Bintang Akalla"
+repository-code: "https://github.com/USER/pleiades-hdbscan"
+license: "MIT"
+keywords:
+  - Gaia
+  - Pleiades
+  - HDBSCAN
+  - astrophysics
+  - clustering
+abstract: >
+  Pipeline modular untuk mengolah data Gaia dan mengelompokkan anggota gugus Pleiades
+  dengan HDBSCAN, dilengkapi validasi numerik dan visualisasi serta notebook laporan.
+preferred-citation:
+  type: software
+  title: "Pleiades HDBSCAN (Gaia): Modular Clustering & Validation Pipeline"
+  authors:
+    - family-names: "Junjunan"
+      given-names: "Bintang Akalla"
+  url: "https://github.com/USER/pleiades-hdbscan"
+  notes: "Sertakan kredit data Gaia sesuai pedoman ESA."
+references:
+  - type: dataset
+    title: "Gaia Archive"
+    url: "https://gea.esac.esa.int/archive/"
+  - type: software
+    title: "HDBSCAN — Hierarchical Density Based Clustering"
+    url: "https://hdbscan.readthedocs.io/"

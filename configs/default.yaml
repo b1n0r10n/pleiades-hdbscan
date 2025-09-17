@@ -1,0 +1,61 @@
+# === Pleiades HDBSCAN default config ===
+# Catatan:
+# - Pastikan nama kolom di bawah (schema) sesuai header CSV kamu.
+# - unit_rescale: dipakai jika data Gaia kamu TIDAK dalam mas (parallax) atau mas/yr (PM).
+#   Set ke 1.0 jika data sudah dalam satuan Gaia standar.
+
+paths:
+  raw_gaia: "data/raw/pleiadesdataset.csv"
+  raw_valid: "data/raw/pleiadesvalid.csv"
+  interim: "data/interim"
+  processed: "data/processed"
+
+schema:
+  gaia:
+    ra: ra                      # contoh: ra, RA_ICRS, dll.
+    dec: dec                    # contoh: dec, DE_ICRS, dll.
+    parallax: parallax          # harus paralaks (standar Gaia dalam mas)
+    pmra: pmra                  # proper motion RA (mas/yr)
+    pmdec: pmdec                # proper motion Dec (mas/yr)
+    g: phot_g_mean_mag
+    bp: phot_bp_mean_mag
+    rp: phot_rp_mean_mag
+    ruwe: ruwe
+  valid:
+    ra: RA_ICRS
+    dec: DE_ICRS
+    parallax: plx               # pastikan satuan sama (mas)
+    pmra: pmRA                  # mas/yr
+    pmdec: pmDE                 # mas/yr
+    gmag: Gmag                  # opsional
+    color: Bp-Rp                # opsional (jika sudah ada warna)
+  # Jika kamu ingin menaruh unit_rescale di bawah schema, biarkan kosong ini:
+  # unit_rescale:
+  #   parallax: 1.0
+  #   pm: 1.0
+
+params:
+  # Filter kualitas & fitur yang dipakai model
+  ruwe_max: 1.4
+  features: [parallax, pmra, pmdec, color, M_G]
+  membership_prob_threshold: 0.5
+
+  # Jika data Gaia kamu ternyata tersimpan ~10–11× lebih kecil (bukan mas / mas/yr),
+  # aktifkan reskalanya di sini. Ganti ke 1.0 bila tidak diperlukan.
+  unit_rescale:
+    parallax: 11.0    # contoh dari diagnosa median: ~7.37 / ~0.67 ≈ 11.0
+    pm: 10.62         # contoh dari diagnosa median: ~49.56 / ~4.67 ≈ 10.62
+
+  # Parameter HDBSCAN (bisa dioverride via CLI)
+  hdbscan:
+    min_cluster_size: 30
+    min_samples:
+    metric: euclidean
+    cluster_selection_epsilon: 0.0
+    cluster_selection_method: eom
+    gen_min_span_tree: true
+    allow_single_cluster: false
+
+  # Opsi plotting
+  plots:
+    max_arrows: 500
