@@ -1,0 +1,19 @@
+{
+  "n_samples": 124436.0,
+  "n_clusters": 2.0,
+  "frac_noise": 0.010045324504162782,
+  "max_cluster_size": 122035.0,
+  "prob_mean": 0.4315974518199347,
+  "prob_median": 0.3981420248746872,
+  "features": [
+    "parallax",
+    "pmra",
+    "pmdec",
+    "color",
+    "M_G"
+  ],
+  "min_cluster_size": 30,
+  "prob_threshold": 0.5,
+  "n_used": 124436,
+  "n_total": 125318
+}
