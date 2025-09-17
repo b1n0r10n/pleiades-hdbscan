@@ -52,11 +52,6 @@ pleiades-hdbscan/
    ├─ test_clustering.py
    ├─ test_validation.py
    └─ test_plotting_smoke.py
-```
-
-> **Catatan:** Folder `data/*` dan `models/*` diabaikan Git (lihat `.gitignore`). Simpan data mentah di `data/raw/`.
-
----
 
 ## Instalasi
 
